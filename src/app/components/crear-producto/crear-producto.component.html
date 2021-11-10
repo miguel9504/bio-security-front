@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="titulo">{{titulo | uppercase}}</span>
+                    <form action="" class="mt-3" [formGroup]="productoForm" (ngSubmit)='agregarProducto()'>
+                        <div class="mb-3">
+                            <input type="text" formControlName="producto" placeholder="Producto" class="form-control form-control-lg"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <div class="text-danger" *ngIf="productoForm.get('producto')?.hasError('required') && productoForm.get('producto')?.touched">
+                                    <span>
+                                        El campo es <b>requerido</b>
+                                    </span>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="categoria" placeholder="Categoria" class="form-control form-control-lg"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <div class="text-danger" *ngIf="productoForm.get('categoria')?.hasError('required') && productoForm.get('categoria')?.touched">
+                                    <span>
+                                        El campo es <b>requerido</b>
+                                    </span>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="descripcion" placeholder="Descripcion" class="form-control form-control-lg"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <div class="text-danger" *ngIf="productoForm.get('descripcion')?.hasError('required') && productoForm.get('descripcion')?.touched">
+                                    <span>
+                                        El campo es <b>requerido</b>
+                                    </span>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="number" formControlName="cantidad" placeholder="Cantidad" class="form-control form-control-lg"
+                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                <div class="text-danger" *ngIf="productoForm.get('cantidad')?.hasError('required') && productoForm.get('cantidad')?.touched">
+                                    <span>
+                                        El campo es <b>requerido</b>
+                                    </span>
+                                </div>
+                        </div>
+                        <div class="mb-3">
+                            <button routerLink='/listar-productos' class="btn btn-secondary float-start">Volver</button>
+                            <button class="btn btn-success float-end" type="submit" [disabled]='productoForm.invalid'>Aceptar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
